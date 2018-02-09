@@ -20,7 +20,12 @@ public class Controller
         @Override
         public void actionPerformed(ActionEvent e)
         {
-            view.displayFields((Object[]) model.setObject(view.getFirstName(), view.getLastName()));
+            if (!view.getFirstName().isEmpty() && !view.getLastName().isEmpty())
+                view.displayFields((Object[]) model.setObject(view.getFirstName(), view.getLastName()));
+            else
+                view.displayError();
+
+
         }
     }
 
